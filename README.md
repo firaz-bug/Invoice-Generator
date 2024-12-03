@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Invoice Project is a web-based application designed to manage and generate invoices efficiently. It provides features for creating, editing, and tracking invoices, as well as managing client information and payment statuses.
+The Invoice Project is a Django-based web application designed to streamline the process of creating, managing, and tracking invoices. It offers features such as client management, invoice generation, and payment tracking.
 
 ## Features
 
@@ -14,11 +14,11 @@ The Invoice Project is a web-based application designed to manage and generate i
 
 ## Technologies Used
 
+- Backend: Django
+- Database: SQLite (default) or PostgreSQL
 - Frontend: HTML, CSS, JavaScript
-- Backend: Node.js, Express.js
-- Database: MongoDB
-- Authentication: JWT
-- PDF Generation: pdfkit
+- PDF Generation: WeasyPrint or ReportLab
+- Authentication: Django's built-in authentication system
 
 ## Installation
 
@@ -36,31 +36,63 @@ To set up the project locally, follow these steps:
    cd invoice-project
    ```
 
-3. **Install the dependencies:**
+3. **Create a virtual environment:**
 
    ```bash
-   npm install
+   python -m venv venv
    ```
 
-4. **Set up environment variables:**
+4. **Activate the virtual environment:**
+
+   - On Windows:
+
+     ```bash
+     venv\Scripts\activate
+     ```
+
+   - On macOS and Linux:
+
+     ```bash
+     source venv/bin/activate
+     ```
+
+5. **Install the dependencies:**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+6. **Set up environment variables:**
 
    Create a `.env` file in the root directory and add the following:
 
    ```plaintext
-   PORT=3000
-   MONGODB_URI=your_mongodb_uri
-   JWT_SECRET=your_jwt_secret
+   SECRET_KEY=your_secret_key
+   DEBUG=True
+   ALLOWED_HOSTS=localhost,127.0.0.1
    ```
 
-5. **Start the application:**
+7. **Apply migrations:**
 
    ```bash
-   npm start
+   python manage.py migrate
    ```
 
-6. **Access the application:**
+8. **Create a superuser:**
 
-   Open your browser and go to `http://localhost:3000`.
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+9. **Start the development server:**
+
+   ```bash
+   python manage.py runserver
+   ```
+
+10. **Access the application:**
+
+    Open your browser and go to `http://localhost:8000`.
 
 ## Usage
 
